@@ -361,8 +361,39 @@ img {
     transform: scale(1.035);
 }
 
-<<<<<<< HEAD
-=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Carrossel automático da imagem principal */
 
 .hero-slides {
@@ -403,7 +434,38 @@ img {
     background: var(--amber);
 }
 
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .image-overlay {
     position: absolute;
     inset: 0;
@@ -796,34 +858,45 @@ img {
     text-align: right;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* SOBRE */
 
 .about-section {
     display: grid;
-<<<<<<< HEAD
-    grid-template-columns: 0.55fr 1.45fr;
-=======
     grid-template-columns: 0.9fr 1.3fr;
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
     align-items: center;
     gap: 8%;
     padding: 105px 10%;
 }
 
-<<<<<<< HEAD
-.about-mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 190px;
-    height: 190px;
-    border: 1px solid var(--terracotta);
-    border-radius: 50%;
-    color: var(--olive);
-    font-family: var(--serif);
-    font-size: 68px;
-    letter-spacing: -5px;
-=======
 .about-media {
     position: relative;
     align-self: stretch;
@@ -855,7 +928,6 @@ img {
     font-family: var(--serif);
     font-size: 54px;
     letter-spacing: -4px;
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
     transform: rotate(-9deg);
 }
 
@@ -922,6 +994,44 @@ img {
     background: var(--olive);
     transform: translateY(-2px);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* RODAPÉ */
 
@@ -1083,6 +1193,37 @@ img {
     transform: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* TABLETS */
 
 @media (max-width: 1000px) {
@@ -1122,8 +1263,15 @@ img {
         gap: 18px;
     }
 
-<<<<<<< HEAD
-=======
+
+
+
+
+    .about-pillars {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
     .about-section {
         grid-template-columns: 1fr;
         gap: 60px;
@@ -1138,7 +1286,26 @@ img {
         bottom: -30px;
     }
 
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     .explore-section {
         padding-left: 5%;
         padding-right: 5%;
@@ -1153,6 +1320,30 @@ img {
         display: none;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* CELULARES */
 
@@ -1341,15 +1532,13 @@ img {
         font-size: 27px;
     }
 
+    
     .about-section {
         grid-template-columns: 1fr;
-<<<<<<< HEAD
-        gap: 35px;
-=======
         gap: 55px;
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
         padding: 70px 7%;
     }
+
 
     .about-mark {
         width: 125px;
@@ -1385,6 +1574,37 @@ img {
         font-size: 8px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* CELULARES PEQUENOS */
 

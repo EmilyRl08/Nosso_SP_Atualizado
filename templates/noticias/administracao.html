@@ -2,6 +2,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +22,7 @@
         <p class="menu-label">ADMINISTRAÇÃO</p>
 
         <nav class="menu">
-
             <a href="{% url 'administracao' %}" class="menu-item active">
-<<<<<<< HEAD
                 <span>01</span> Início
             </a>
 
@@ -45,31 +44,7 @@
 
             <a href="{% url 'logout' %}" class="menu-item sair">
                 <span>↗</span> Sair
-=======
-                <span class="menu-icon">⌂</span> Início
             </a>
-
-            <a href="#publicacoes" class="menu-item">
-                <span class="menu-icon">▤</span> Publicações
-            </a>
-
-            <a href="#aprovar" class="menu-item">
-                <span class="menu-icon">✓</span> Aprovar notícias
-            </a>
-
-            <a href="#solicitacoes" class="menu-item">
-                <span class="menu-icon">✎</span> Pedidos de jornalista
-            </a>
-
-            <a href="{% url 'explorar' %}" class="menu-item">
-                <span class="menu-icon">⌕</span> Explorar portal
-            </a>
-
-            <a href="{% url 'logout' %}" class="menu-item sair">
-                <span class="menu-icon">↗</span> Sair
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
-            </a>
-
         </nav>
 
         <div class="sidebar-bottom">
@@ -112,14 +87,10 @@
                     Aprove ou negue as notícias enviadas pelos jornalistas
                     e mantenha o portal organizado.
                 </p>
-
             </div>
 
             <div class="intro-decoration">
-<<<<<<< HEAD
                 <span class="decoration-number">01</span>
-=======
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
                 <span class="decoration-text">INFORMAÇÃO LOCAL.<br>VOZES REAIS.</span>
                 <span class="decoration-line"></span>
             </div>
@@ -186,13 +157,16 @@
                             <span class="publication-category">
                                 {{ publicacao.categoria|upper }}
                             </span>
+
                             <h3>{{ publicacao.titulo }}</h3>
+
                             <span class="publication-date">
                                 {% if publicacao.regiao %}
                                     {{ publicacao.regiao }}
                                 {% else %}
                                     Região não informada
                                 {% endif %}
+
                                 · {{ publicacao.data_criacao|date:"d/m/Y" }}
                                 · {{ publicacao.autor_email|default:"autor não informado" }}
                             </span>
@@ -247,6 +221,7 @@
                     <p class="section-description">
                         Confira os dados e os certificados e, ao liberar,
                         o perfil do leitor vira jornalista automaticamente.
+
                         {% if total_solicitacoes %}
                             ({{ total_solicitacoes }} em andamento)
                         {% endif %}
@@ -257,6 +232,7 @@
             <div class="publication-list">
 
                 {% for s in solicitacoes %}
+
                     <article class="solicitacao-item">
 
                         <div class="solicitacao-topo">
@@ -274,21 +250,35 @@
                         </div>
 
                         {% if s.cpf %}
-                            <p class="solicitacao-texto"><strong>CPF:</strong> {{ s.cpf }}</p>
+                            <p class="solicitacao-texto">
+                                <strong>CPF:</strong> {{ s.cpf }}
+                            </p>
                         {% endif %}
 
                         {% if s.zona or s.bairro %}
-                            <p class="solicitacao-texto"><strong>Mora em:</strong> {{ s.zona }}{% if s.zona and s.bairro %} · {% endif %}{{ s.bairro }}</p>
+                            <p class="solicitacao-texto">
+                                <strong>Mora em:</strong>
+                                {{ s.zona }}{% if s.zona and s.bairro %} · {% endif %}{{ s.bairro }}
+                            </p>
                         {% endif %}
 
-                        <p class="solicitacao-texto"><strong>Habilidades:</strong> {{ s.capacidades|linebreaksbr }}</p>
+                        <p class="solicitacao-texto">
+                            <strong>Habilidades:</strong>
+                            {{ s.capacidades|linebreaksbr }}
+                        </p>
 
                         {% if s.experiencia %}
-                            <p class="solicitacao-texto"><strong>Experiência:</strong> {{ s.experiencia|linebreaksbr }}</p>
+                            <p class="solicitacao-texto">
+                                <strong>Experiência:</strong>
+                                {{ s.experiencia|linebreaksbr }}
+                            </p>
                         {% endif %}
 
                         {% if s.certificados.all %}
-                            <p class="solicitacao-texto"><strong>Certificados:</strong></p>
+                            <p class="solicitacao-texto">
+                                <strong>Certificados:</strong>
+                            </p>
+
                             <div class="solicitacao-certificados">
                                 {% for c in s.certificados.all %}
                                     <a href="{{ c.imagem.url }}" target="_blank" title="Abrir certificado">
@@ -300,7 +290,9 @@
 
                         {% if s.curriculo %}
                             <p class="solicitacao-texto">
-                                <a href="{{ s.curriculo.url }}" target="_blank" class="cta-link">Abrir currículo <span>↗</span></a>
+                                <a href="{{ s.curriculo.url }}" target="_blank" class="cta-link">
+                                    Abrir currículo <span>↗</span>
+                                </a>
                             </p>
                         {% endif %}
 
@@ -308,7 +300,9 @@
                             <p class="solicitacao-texto">
                                 <strong>Entrevista:</strong>
                                 {{ s.data_entrevista|date:"d/m/Y \à\s H:i" }}
-                                {% if s.detalhes_entrevista %}· {{ s.detalhes_entrevista }}{% endif %}
+                                {% if s.detalhes_entrevista %}
+                                    · {{ s.detalhes_entrevista }}
+                                {% endif %}
                             </p>
                         {% endif %}
 
@@ -317,12 +311,16 @@
 
                                 <form action="{% url 'decidir_solicitacao' s.id 'liberar' %}" method="POST">
                                     {% csrf_token %}
-                                    <button type="submit" class="action-button action-approve">Liberar como jornalista</button>
+                                    <button type="submit" class="action-button action-approve">
+                                        Liberar como jornalista
+                                    </button>
                                 </form>
 
                                 <form action="{% url 'decidir_solicitacao' s.id 'recusar' %}" method="POST">
                                     {% csrf_token %}
-                                    <button type="submit" class="action-button action-deny">Recusar</button>
+                                    <button type="submit" class="action-button action-deny">
+                                        Recusar
+                                    </button>
                                 </form>
 
                             </div>
@@ -331,9 +329,11 @@
                     </article>
 
                 {% empty %}
+
                     <p class="section-description">
                         Nenhum pedido de jornalista recebido até agora.
                     </p>
+
                 {% endfor %}
 
             </div>
@@ -355,6 +355,7 @@
             <div class="publication-list">
 
                 {% for publicacao in publicacoes %}
+
                     <article class="publication-item">
 
                         <div class="publication-number">
@@ -405,9 +406,11 @@
                     </article>
 
                 {% empty %}
+
                     <p class="section-description">
                         Ainda não existem notícias enviadas ao portal.
                     </p>
+
                 {% endfor %}
 
             </div>

@@ -12,14 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/explorar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-
-    <script>
-        document.documentElement.classList.add("js");
-    </script>
+    <script>document.documentElement.classList.add("js");</script>
 </head>
-
+<<<<<<< HEAD
+<body>
+=======
 <body id="top">
+>>>>>>> 7d5b060 (Minhas alteracoes no projeto)
 
     <div class="topline">
         <span>JORNALISMO DE PERTO</span>
@@ -36,18 +35,10 @@
             <a href="{% url 'home' %}#sobre">Sobre nós</a>
         </nav>
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Abrir menu"
-        >
-            ☰
-        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
     </header>
 
     <main>
-
-        <!-- APRESENTAÇÃO -->
         <section class="explore-hero">
             <h1>
                 São Paulo<br>
@@ -70,52 +61,33 @@
             </div>
         </section>
 
-        <!-- BUSCA -->
         <section class="search-section">
             <form class="search-form" id="searchForm">
                 <label for="searchInput" class="search-icon">⌕</label>
-
                 <input
                     type="search"
                     id="searchInput"
                     placeholder="Busque por assunto, notícia ou palavra-chave..."
                     autocomplete="off"
                 >
-
-                <button type="submit">
-                    Buscar <span>↗</span>
-                </button>
+                <button type="submit">Buscar <span>↗</span></button>
             </form>
 
             <div class="search-note">
-                <span id="resultsCount">
-                    {{ publicacoes|length }} HISTÓRIAS
-                </span>
+                <span id="resultsCount">{{ publicacoes|length }} HISTÓRIAS</span>
             </div>
         </section>
 
-        <!-- FILTROS -->
         <section class="filters-section">
-
             <div class="filter-heading">
                 <h2 class="filter-title">Escolha seu olhar</h2>
-
-                <button
-                    type="button"
-                    id="clearFilters"
-                    class="clear-filters"
-                >
+                <button type="button" id="clearFilters" class="clear-filters">
                     Limpar filtros ↺
                 </button>
             </div>
 
             <div class="category-filters" id="categoryFilters">
-
-                <button
-                    type="button"
-                    class="filter-chip selected"
-                    data-category="Todas"
-                >
+                <button type="button" class="filter-chip selected" data-category="Todas">
                     Todas as notícias <span>✳</span>
                 </button>
 
@@ -146,13 +118,10 @@
                 <button type="button" class="filter-chip" data-category="Segurança">
                     Segurança
                 </button>
-
             </div>
 
             <div class="secondary-filters">
-
                 <label for="regionFilter">REGIÃO</label>
-
                 <select id="regionFilter">
                     <option value="Todas">Todas as regiões</option>
                     <option value="Centro">Centro</option>
@@ -163,24 +132,20 @@
                 </select>
 
                 <label for="sortFilter">ORDENAR</label>
-
                 <select id="sortFilter">
                     <option value="recentes">Mais recentes</option>
                     <option value="antigos">Mais antigas</option>
                     <option value="titulo">Ordem alfabética</option>
                 </select>
-
             </div>
-
         </section>
 
-        <!-- RESULTADOS -->
         <section class="results-section" id="resultados">
-
             <div class="results-heading">
                 <div>
                     <h2>Histórias em <em>pauta.</em></h2>
                 </div>
+
             </div>
 
             <div class="stories-grid" id="storiesGrid">
@@ -194,50 +159,30 @@
                         data-date="{{ publicacao.data_criacao|date:'Y-m-d H:i:s' }}"
                         data-title="{{ publicacao.titulo }}"
                     >
-
-                        <a
-                            href="{% url 'noticia' %}?id={{ publicacao.id }}"
-                            class="story-image"
-                        >
+                        <a href="{% url 'noticia' %}?id={{ publicacao.id }}" class="story-image">
 
                             {% if publicacao.imagem_url %}
-
                                 <img
                                     src="{{ publicacao.imagem_url }}"
                                     alt="{{ publicacao.titulo }}"
                                 >
-
                             {% else %}
-
                                 <img
                                     src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=85"
                                     alt="Paisagem urbana de São Paulo"
                                 >
-
                             {% endif %}
 
-                            <span class="story-category">
-                                {{ publicacao.categoria }}
-                            </span>
-
+                            <span class="story-category">{{ publicacao.categoria }}</span>
                             <span class="story-arrow">↗</span>
-
                         </a>
 
                         <div class="story-meta">
-
                             <span>
                                 {{ publicacao.regiao|default:"SÃO PAULO" }}
-
-                                {% if publicacao.local %}
-                                    · {{ publicacao.local }}
-                                {% endif %}
+                                {% if publicacao.local %} · {{ publicacao.local }}{% endif %}
                             </span>
-
-                            <span>
-                                {{ publicacao.data_criacao|date:"d/m/Y" }}
-                            </span>
-
+                            <span>{{ publicacao.data_criacao|date:"d/m/Y" }}</span>
                         </div>
 
                         <h3>
@@ -251,52 +196,94 @@
                         <span class="story-location">
                             ⌖ {{ publicacao.local|default:"SÃO PAULO" }}
                         </span>
-
                     </article>
 
                 {% empty %}
 
-                    <p>
-                        Nenhuma notícia publicada ainda. Volte em breve!
-                    </p>
+                    <p>Nenhuma notícia publicada ainda. Volte em breve!</p>
 
                 {% endfor %}
 
             </div>
 
-            <!-- RESULTADO VAZIO -->
             <div class="empty-state" id="emptyState" hidden>
-
                 <span class="empty-symbol">⌕</span>
-
                 <h3>Nenhuma história encontrada.</h3>
-
-                <p>
-                    Tente outra palavra ou remova algum filtro.
-                </p>
-
-                <button type="button" id="emptyClear">
-                    Limpar busca e filtros ↺
-                </button>
-
+                <p>Tente outra palavra ou remova algum filtro.</p>
+                <button type="button" id="emptyClear">Limpar busca e filtros ↺</button>
             </div>
 
             <div class="results-footer">
-                <a href="#top" id="backToTop">
-                    VOLTAR AO TOPO ↑
-                </a>
+                <a href="#top" id="backToTop">VOLTAR AO TOPO ↑</a>
             </div>
-
         </section>
 
     </main>
 
-    <!-- RODAPÉ COMPARTILHADO -->
-    {% include 'noticias/partials/footer.html' %}
+    <footer class="footer">
+<<<<<<< HEAD
+        <a href="{% url 'home' %}" class="logo footer-logo">nosso<span>SP.</span></a>
+        <p>Feito para quem vive a cidade.</p>
+        <a href="{% url 'home' %}" class="footer-home">VOLTAR AO INÍCIO ↗</a>
+        <span class="footer-copy">© 2026 NOSSO SP</span>
+=======
 
-    <!-- JAVASCRIPT -->
+        <div class="footer-main">
+
+            <div class="footer-brand">
+                <a href="{% url 'home' %}" class="logo footer-logo">
+                    nosso<span>SP.</span>
+                </a>
+
+                <p>
+                    Notícias, histórias e acontecimentos dos bairros
+                    de São Paulo, feitos por quem vive a cidade.
+                </p>
+            </div>
+
+            <nav class="footer-column" aria-label="Navegação do rodapé">
+                <h4>Navegue</h4>
+                <a href="{% url 'home' %}">Início</a>
+                <a href="{% url 'home' %}#ultimas">Notícias</a>
+                <a href="{% url 'explorar' %}">Explorar</a>
+                <a href="{% url 'home' %}#sobre">Sobre nós</a>
+            </nav>
+
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <a href="mailto:contato@nossosp.com">contato@nossosp.com</a>
+                <span>São Paulo, SP — Brasil</span>
+                <span>Atendimento de segunda a sexta</span>
+            </div>
+
+            <div class="footer-column">
+                <h4>Sua conta</h4>
+                {% if request.session.usuario_tipo %}
+                    <a href="{% url 'logout' %}">Sair</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Entrar</a>
+                    <a href="{% url 'cadastro_leitor' %}">Cadastrar</a>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span class="footer-copy">© 2026 NOSSO SP</span>
+
+            <a
+                href="#top"
+                class="back-top"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+            >
+                VOLTAR AO TOPO ↑
+            </a>
+        </div>
+
+>>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+    </footer>
+
     <script>
-
         const searchForm = document.getElementById("searchForm");
         const searchInput = document.getElementById("searchInput");
         const categoryFilters = document.getElementById("categoryFilters");
@@ -307,59 +294,25 @@
         const emptyState = document.getElementById("emptyState");
 
         const params = new URLSearchParams(window.location.search);
+        const categoriaInicial = params.get("categoria");
 
-        let selectedCategory = params.get("categoria") || "Todas";
+        let selectedCategory = categoriaInicial || "Todas";
 
         function normalizeText(text) {
-
             return text
                 .toLocaleLowerCase("pt-BR")
                 .normalize("NFD")
                 .replace(/[\u0300-\u036f]/g, "");
-
-        }
-
-        const chips = Array.from(
-            categoryFilters.querySelectorAll(".filter-chip")
-        );
-
-        const categoriaExiste = chips.some(function (chip) {
-
-            return chip.dataset.category === selectedCategory;
-
-        });
-
-        if (!categoriaExiste) {
-
-            selectedCategory = "Todas";
-
-        }
-
-        function updateSelectedChip() {
-
-            chips.forEach(function (chip) {
-
-                chip.classList.toggle(
-                    "selected",
-                    chip.dataset.category === selectedCategory
-                );
-
-            });
-
         }
 
         function filterStories() {
-
             const query = normalizeText(searchInput.value.trim());
-
             const region = regionFilter.value;
-
             const cards = Array.from(
                 storiesGrid.querySelectorAll(".story-card")
             );
 
             cards.forEach(function (card) {
-
                 const title = card.dataset.title || "";
                 const category = card.dataset.category || "";
                 const cardRegion = card.dataset.region || "";
@@ -367,7 +320,7 @@
 
                 const matchesQuery = !query ||
                     normalizeText(title + " " + category + " " + content)
-                        .includes(query);
+                    .includes(query);
 
                 const matchesCategory = selectedCategory === "Todas" ||
                     normalizeText(category) === normalizeText(selectedCategory);
@@ -376,172 +329,162 @@
                     cardRegion === region;
 
                 card.hidden = !(
-                    matchesQuery &&
-                    matchesCategory &&
-                    matchesRegion
+                    matchesQuery && matchesCategory && matchesRegion
                 );
-
             });
 
             const visibleCards = cards.filter(function (card) {
-
                 return !card.hidden;
-
             });
 
+            const sort = sortFilter.value;
+
             visibleCards.sort(function (a, b) {
-
-                if (sortFilter.value === "titulo") {
-
+                if (sort === "titulo") {
                     return a.dataset.title.localeCompare(
                         b.dataset.title,
                         "pt-BR"
                     );
-
                 }
 
-                const dateA = new Date(
-                    a.dataset.date.replace(" ", "T")
-                );
+                const dateA = new Date(a.dataset.date.replace(" ", "T"));
+                const dateB = new Date(b.dataset.date.replace(" ", "T"));
 
-                const dateB = new Date(
-                    b.dataset.date.replace(" ", "T")
-                );
-
-                return sortFilter.value === "antigos"
+                return sort === "antigos"
                     ? dateA - dateB
                     : dateB - dateA;
-
             });
 
             visibleCards.forEach(function (card) {
-
                 storiesGrid.appendChild(card);
-
             });
 
             resultsCount.textContent =
                 visibleCards.length +
-                (visibleCards.length === 1
-                    ? " HISTÓRIA"
-                    : " HISTÓRIAS"
-                );
+                (visibleCards.length === 1 ? " HISTÓRIA" : " HISTÓRIAS");
 
             emptyState.hidden = visibleCards.length !== 0;
-
         }
 
-        // BUSCA
         searchForm.addEventListener("submit", function (event) {
-
             event.preventDefault();
-
             filterStories();
 
             document.getElementById("resultados").scrollIntoView({
                 behavior: "smooth",
                 block: "start"
             });
-
         });
 
         searchInput.addEventListener("input", filterStories);
-
-        // FILTRO DE REGIÃO E ORDENAÇÃO
         regionFilter.addEventListener("change", filterStories);
-
         sortFilter.addEventListener("change", filterStories);
 
-        // FILTRO DE CATEGORIA
-        chips.forEach(function (button) {
-
+        categoryFilters.querySelectorAll(".filter-chip").forEach(function (button) {
             button.addEventListener("click", function () {
-
                 selectedCategory = button.dataset.category;
 
-                updateSelectedChip();
+                categoryFilters.querySelectorAll(".filter-chip").forEach(function (chip) {
+                    chip.classList.toggle("selected", chip === button);
+                });
 
                 filterStories();
-
             });
-
         });
 
-        // LIMPAR FILTROS
         function clearFilters() {
-
             searchInput.value = "";
-
             regionFilter.value = "Todas";
-
             sortFilter.value = "recentes";
-
             selectedCategory = "Todas";
 
-            updateSelectedChip();
-
-            filterStories();
-
-        }
-
-        document.getElementById("clearFilters").addEventListener(
-            "click",
-            clearFilters
-        );
-
-        document.getElementById("emptyClear").addEventListener(
-            "click",
-            clearFilters
-        );
-
-        // VOLTAR AO TOPO
-        function goToTop(event) {
-
-            event.preventDefault();
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
+            categoryFilters.querySelectorAll(".filter-chip").forEach(function (chip) {
+                chip.classList.toggle(
+                    "selected",
+                    chip.dataset.category === "Todas"
+                );
             });
 
+            filterStories();
         }
 
-        document.getElementById("backToTop").addEventListener(
-            "click",
-            goToTop
-        );
+        document.getElementById("clearFilters").addEventListener("click", clearFilters);
+        document.getElementById("emptyClear").addEventListener("click", clearFilters);
 
-        document.getElementById("backToTopFooter").addEventListener(
-            "click",
-            goToTop
-        );
+        document.getElementById("backToTop").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
 
-        // MENU RESPONSIVO
         const menuToggle = document.getElementById("menuToggle");
-
         const navigation = document.getElementById("navigation");
 
         menuToggle.addEventListener("click", function () {
-
             navigation.classList.toggle("navigation-open");
-
         });
 
         navigation.querySelectorAll("a").forEach(function (link) {
-
             link.addEventListener("click", function () {
-
                 navigation.classList.remove("navigation-open");
-
             });
-
         });
 
-        // INICIALIZAÇÃO
-        updateSelectedChip();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        const chips = categoryFilters.querySelectorAll(".filter-chip");
+
+const categoriaExiste = Array.from(chips).some(function (chip) {
+    return chip.dataset.category === selectedCategory;
+});
+
+if (!categoriaExiste) {
+    selectedCategory = "Todas";
+}
+
+chips.forEach(function (chip) {
+    chip.classList.toggle(
+        "selected",
+        chip.dataset.category === selectedCategory
+    );
+});
 
         filterStories();
-
     </script>
 
 </body>

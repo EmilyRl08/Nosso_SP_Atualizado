@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redação | Nosso SP</title>
+
     <link rel="stylesheet" href="{% static 'css/painel.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -23,7 +24,6 @@
         <nav class="menu">
 
             <a href="{% url 'painel' %}" class="menu-item active">
-<<<<<<< HEAD
                 <span>01</span> Início
             </a>
 
@@ -41,25 +41,6 @@
 
             <a href="{% url 'logout' %}" class="menu-item sair">
                 <span>↗</span> Sair da redação
-=======
-                <span class="menu-icon">⌂</span> Início
-            </a>
-
-            <a href="{% url 'minhas_publicacoes' %}" class="menu-item">
-                <span class="menu-icon">▤</span> Minhas publicações
-            </a>
-
-            <a href="{% url 'nova_noticia' %}" class="menu-item">
-                <span class="menu-icon">✎</span> Escrever notícia
-            </a>
-
-            <a href="{% url 'explorar' %}" class="menu-item">
-                <span class="menu-icon">⌕</span> Explorar portal
-            </a>
-
-            <a href="{% url 'logout' %}" class="menu-item sair">
-                <span class="menu-icon">↗</span> Sair da redação
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
             </a>
 
         </nav>
@@ -216,6 +197,7 @@
                                 <a href="{% url 'noticia' %}?id={{ publicacao.id }}"
                                    class="publication-arrow"
                                    title="Visualizar notícia">↗</a>
+
                             {% elif publicacao.status == "rascunho" %}
                                 <a href="{% url 'editar_noticia' publicacao.id %}"
                                    class="publication-edit"
@@ -257,12 +239,14 @@
 
 
         <footer class="footer">
+
             <a href="{% url 'home' %}" class="footer-logo">
                 nosso<span>SP.</span>
             </a>
 
             <span>© 2026 Nosso SP</span>
             <span>Jornalismo feito por e para a comunidade.</span>
+
         </footer>
 
     </main>

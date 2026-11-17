@@ -161,6 +161,9 @@ img {
     border-bottom: 1px solid var(--line);
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     background-color: var(--olive);
     background-image:
         linear-gradient(rgba(20, 24, 18, 0.68), rgba(20, 24, 18, 0.72)),
@@ -168,7 +171,10 @@ img {
     background-size: cover;
     background-position: center;
     color: #fff;
+<<<<<<< HEAD
+=======
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
 }
 
 .explore-kicker {
@@ -204,10 +210,14 @@ img {
 
 .explore-hero h1 em {
 <<<<<<< HEAD
+    color: #E98A66;
+=======
+<<<<<<< HEAD
     color: var(--terracotta);
 =======
     color: #E98A66;
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     font-weight: 400;
 }
 
@@ -221,10 +231,14 @@ img {
 
 .explore-intro p {
 <<<<<<< HEAD
+    color: #EDEAE0;
+=======
+<<<<<<< HEAD
     color: #65655B;
 =======
     color: #EDEAE0;
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     font-size: 12px;
     line-height: 1.95;
 }
@@ -251,6 +265,11 @@ img {
     align-items: center;
     justify-content: center;
 <<<<<<< HEAD
+    border: 1px solid #E98A66;
+    border-radius: 50%;
+    color: #E98A66;
+=======
+<<<<<<< HEAD
     border: 1px solid var(--terracotta);
     border-radius: 50%;
     color: var(--terracotta);
@@ -259,6 +278,7 @@ img {
     border-radius: 50%;
     color: #E98A66;
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     transform: rotate(10deg);
 }
 
@@ -397,6 +417,11 @@ img {
     display: flex;
     flex-wrap: wrap;
 <<<<<<< HEAD
+    justify-content: center;
+    gap: 12px;
+    margin-top: 26px;
+=======
+<<<<<<< HEAD
     gap: 10px;
     margin-top: 22px;
 =======
@@ -404,6 +429,7 @@ img {
     gap: 12px;
     margin-top: 26px;
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
 }
 
 .filter-chip {
@@ -411,21 +437,30 @@ img {
     align-items: center;
     gap: 10px;
 <<<<<<< HEAD
+    min-height: 48px;
+    padding: 0 24px;
+=======
+<<<<<<< HEAD
     min-height: 39px;
     padding: 0 16px;
 =======
     min-height: 48px;
     padding: 0 24px;
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     border: 1px solid rgba(38, 39, 34, 0.22);
     border-radius: 30px;
     background: transparent;
     color: var(--charcoal);
 <<<<<<< HEAD
+    font-size: 12px;
+=======
+<<<<<<< HEAD
     font-size: 10px;
 =======
     font-size: 12px;
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     font-weight: 700;
     transition: background 0.2s ease, color 0.2s ease,
         border-color 0.2s ease;
@@ -791,6 +826,9 @@ img {
 .footer {
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     padding: 70px 5% 28px;
     background: var(--olive);
     color: var(--cream);
@@ -853,11 +891,16 @@ img {
 }
 
 .footer-bottom {
+<<<<<<< HEAD
+=======
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
     gap: 20px;
     padding: 30px 5%;
@@ -878,6 +921,7 @@ img {
     color: var(--muted);
     font-size: 8px;
 =======
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     gap: 14px;
     padding-top: 24px;
 }
@@ -886,11 +930,18 @@ img {
 .footer-copy {
     color: #B9BBAE;
     font-size: 9px;
+<<<<<<< HEAD
+=======
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     font-weight: 800;
     letter-spacing: 0.8px;
 }
 
+<<<<<<< HEAD
+.back-top:hover {
+    color: var(--amber);
+=======
 <<<<<<< HEAD
 .footer-home:hover {
     color: var(--terracotta);
@@ -898,6 +949,7 @@ img {
 .back-top:hover {
     color: var(--amber);
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
 }
 
 /* TABLETS */
@@ -934,12 +986,18 @@ img {
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     .footer-main {
         grid-template-columns: 1fr 1fr;
         gap: 38px;
     }
 
+<<<<<<< HEAD
+=======
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     .stories-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1116,6 +1174,8 @@ img {
 
     .category-filters {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
         gap: 8px;
         margin-top: 18px;
     }
@@ -1125,6 +1185,7 @@ img {
         padding: 0 12px;
         font-size: 9px;
 =======
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
         gap: 9px;
         margin-top: 20px;
     }
@@ -1133,7 +1194,10 @@ img {
         min-height: 42px;
         padding: 0 16px;
         font-size: 10.5px;
+<<<<<<< HEAD
+=======
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     }
 
     .secondary-filters {
@@ -1217,6 +1281,8 @@ img {
 
     .footer {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
         justify-content: flex-start;
         gap: 17px;
         padding: 27px 5%;
@@ -1234,6 +1300,7 @@ img {
     .footer-copy {
         font-size: 7px;
 =======
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
         padding: 55px 5% 24px;
     }
 
@@ -1246,7 +1313,10 @@ img {
     .back-top,
     .footer-copy {
         font-size: 8px;
+<<<<<<< HEAD
+=======
 >>>>>>> 7d5b060 (Minhas alteracoes no projeto)
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     }
 }
 

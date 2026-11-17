@@ -3,6 +3,10 @@ import os
 
 from django.contrib.auth.hashers import check_password, make_password
 from django.conf import settings
+<<<<<<< HEAD
+from django.http import Http404
+=======
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 from django.shortcuts import render, redirect, get_object_or_404
@@ -134,7 +138,15 @@ def logout(request):
 
 # DETALHES DA NOTÍCIA E COMENTÁRIOS
 def noticia(request):
+<<<<<<< HEAD
+    publicacao_id = request.GET.get("id", "")
+
+    # Um id que não seja número (ex.: ?id=abc) é tratado como "não encontrada".
+    if not publicacao_id.isdigit():
+        raise Http404("Notícia não encontrada.")
+=======
     publicacao_id = request.GET.get("id")
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
 
     if eh_administrador(request):
         # O administrador pode ler qualquer notícia para decidir se aprova.
@@ -187,11 +199,15 @@ def noticia(request):
             "comentarios": comentarios_publicados,
             "erro_comentario": erro_comentario,
             "comentario_enviado": request.GET.get("enviado") == "1",
+<<<<<<< HEAD
+            "geoapify_key": settings.GEOAPIFY_API_KEY,
+=======
             "google_maps_key": (
                 settings.GOOGLE_MAPS_API_KEY
                 if settings.GOOGLE_MAPS_API_KEY != "COLE_SUA_CHAVE_AQUI"
                 else ""
             ),
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
             "leitor_conectado": eh_leitor(request),
             "pode_comentar": request.session.get("usuario_tipo") in [
                 "leitor", "jornalista", "administrador"

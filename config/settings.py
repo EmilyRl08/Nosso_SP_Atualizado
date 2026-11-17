@@ -1,11 +1,15 @@
 
 import os
 from pathlib import Path
+<<<<<<< HEAD
 from urllib.parse import parse_qs, unquote, urlparse
+=======
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
 
 # Caminho principal do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+<<<<<<< HEAD
 # Lê o arquivo .env (se existir) para preencher as variáveis de ambiente.
 # Veja o arquivo .env.example para saber o que configurar.
 try:
@@ -45,6 +49,15 @@ DEBUG = env_bool("DEBUG", True)
 ALLOWED_HOSTS = env_lista("ALLOWED_HOSTS")
 
 CSRF_TRUSTED_ORIGINS = env_lista("CSRF_TRUSTED_ORIGINS")
+=======
+
+# Configurações de segurança
+SECRET_KEY = 'django-insecure-!3t#=t0y^m&=o&53&v#lk*%0--ic4uz*%35mn*ke!+jww3ur'
+
+DEBUG = True
+
+ALLOWED_HOSTS = []
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
 
 
 # Aplicativos instalados
@@ -56,6 +69,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+<<<<<<< HEAD
+=======
+    'rest_framework',
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
     'noticias',
 ]
 
@@ -95,6 +112,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
+<<<<<<< HEAD
 # Banco de dados
 # Com a variável DATABASE_URL definida no .env, o site usa o PostgreSQL
 # do Supabase. Sem ela, continua usando o SQLite local (db.sqlite3).
@@ -138,6 +156,16 @@ def banco_de_dados():
 
 
 DATABASES = banco_de_dados()
+=======
+# Banco de dados temporário: SQLite
+# Depois configuraremos o PostgreSQL/Supabase.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
 
 
 # Validação de senhas
@@ -169,7 +197,10 @@ USE_TZ = True
 
 # Arquivos estáticos: CSS, JavaScript e imagens
 STATIC_URL = 'static/'
+<<<<<<< HEAD
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+=======
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -183,9 +214,15 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+<<<<<<< HEAD
 # Chave da API do Geoapify (mapa da página da notícia).
 # Defina GEOAPIFY_API_KEY no arquivo .env.
 GEOAPIFY_API_KEY = os.environ.get(
     "GEOAPIFY_API_KEY",
     "f73beb4cb8c849f0a2ca9139a6728752"
 )
+=======
+# Chave da API do Google Maps (Maps Embed API).
+# Cole a sua chave aqui ou defina a variável de ambiente GOOGLE_MAPS_API_KEY.
+GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY", "02fe3f50f908485f8fa93c8c65619fa5")
+>>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e

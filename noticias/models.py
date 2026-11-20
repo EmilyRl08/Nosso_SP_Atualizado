@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.core.files.storage import storages
 
 
 class Noticia(models.Model):
@@ -30,7 +31,11 @@ class Noticia(models.Model):
         blank=True
     )
     imagem = models.URLField(blank=True)
-    foto = models.FileField(upload_to="noticias/", blank=True)
+    foto = models.FileField(
+    upload_to="noticias/",
+    blank=True,
+    storage=storages["default"]
+)
     conteudo = models.TextField()
     tags = models.CharField(max_length=250, blank=True)
     status = models.CharField(
@@ -104,7 +109,11 @@ class SolicitacaoJornalista(models.Model):
     bairro = models.CharField(max_length=100, blank=True, default="")
     capacidades = models.TextField()  # habilidades do candidato
     experiencia = models.TextField(blank=True)
-    curriculo = models.FileField(upload_to="curriculos/", blank=True)
+    curriculo = models.FileField(
+    upload_to="curriculos/",
+    blank=True,
+    storage=storages["curriculos"]
+)
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
@@ -124,7 +133,10 @@ class CertificadoSolicitacao(models.Model):
         on_delete=models.CASCADE,
         related_name="certificados"
     )
-    imagem = models.FileField(upload_to="certificados/")
+    imagem = models.FileField(
+    upload_to="certificados/",
+    storage=storages["certificados"]
+)
 
     def __str__(self):
         return f"Certificado de {self.solicitacao.leitor.nome}"

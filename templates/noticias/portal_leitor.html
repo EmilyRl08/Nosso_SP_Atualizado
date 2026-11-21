@@ -31,12 +31,14 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 25px;
         }
 
         body {
             background: var(--paper);
             color: var(--charcoal);
             font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
         }
 
         a {
@@ -44,8 +46,16 @@
             color: inherit;
         }
 
+        button, input, select, textarea {
+            font: inherit;
+        }
+
         button {
-            font-family: inherit;
+            cursor: pointer;
+        }
+
+        [hidden] {
+            display: none !important;
         }
 
         .layout {
@@ -67,8 +77,8 @@
         }
 
         .brand {
-            padding: 0 12px 42px;
-            border-bottom: 1px solid rgba(243, 235, 221, 0.18);
+            padding: 0 12px 30px;
+            border-bottom: 1px solid rgba(243, 235, 221, .18);
         }
 
         .brand-name {
@@ -79,14 +89,6 @@
 
         .brand-name span {
             color: var(--amber);
-        }
-
-        .brand-subtitle {
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: .65;
-            margin-top: 3px;
         }
 
         .menu-label {
@@ -140,11 +142,13 @@
             gap: 11px;
             padding: 10px;
             margin-bottom: 14px;
+            min-width: 0;
         }
 
         .avatar {
             width: 38px;
             height: 38px;
+            flex-shrink: 0;
             border-radius: 50%;
             background: var(--amber);
             color: var(--olive);
@@ -156,6 +160,7 @@
         .reader-mini strong {
             display: block;
             font-size: 12px;
+            overflow-wrap: anywhere;
         }
 
         .reader-mini small {
@@ -202,20 +207,27 @@
             color: var(--charcoal);
         }
 
+        .breadcrumb a:hover {
+            color: var(--terracotta);
+        }
+
         .topbar-right {
             display: flex;
             align-items: center;
             gap: 15px;
+            min-width: 0;
         }
 
         .reader-label {
             font-size: 12px;
             color: var(--muted);
+            overflow-wrap: anywhere;
         }
 
         .top-avatar {
             width: 38px;
             height: 38px;
+            flex-shrink: 0;
             border-radius: 50%;
             display: grid;
             place-items: center;
@@ -228,19 +240,17 @@
 
         .welcome {
             margin: 36px 0 32px;
-            padding: 35px 40px;
+            padding: 45px 40px;
+            min-height: 280px;
             border-radius: 13px;
             background: var(--cream);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        .welcome::after {
-=======
->>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
         .welcome-slides {
             position: absolute;
             inset: 0;
@@ -265,27 +275,15 @@
             position: absolute;
             inset: 0;
             z-index: 1;
-            background: linear-gradient(90deg, rgba(20, 24, 18, .82) 0%, rgba(20, 24, 18, .55) 60%, rgba(20, 24, 18, .35) 100%);
+            background: linear-gradient(
+                90deg,
+                rgba(20,24,18,.82),
+                rgba(20,24,18,.55),
+                rgba(20,24,18,.35)
+            );
         }
-
-        .welcome > .eyebrow,
-        .welcome > h1,
-        .welcome > p {
-            position: relative;
-            z-index: 2;
-        }
-
-        .welcome h1 { color: #fff; }
-        .welcome h1 span { color: var(--amber); }
-        .welcome p { color: #EDEAE0; }
-        .welcome .eyebrow { color: var(--amber); }
 
         .welcome::after {
-            z-index: 2;
-<<<<<<< HEAD
-=======
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
->>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
             content: "SP";
             position: absolute;
             right: 35px;
@@ -294,10 +292,16 @@
             font-size: 190px;
             color: rgba(198, 93, 58, .09);
             pointer-events: none;
+            z-index: 2;
+        }
+
+        .welcome > *:not(.welcome-slides):not(.welcome-shade) {
+            position: relative;
+            z-index: 3;
         }
 
         .eyebrow {
-            color: var(--terracotta);
+            color: var(--amber);
             font-size: 10px;
             font-weight: 800;
             letter-spacing: 2.5px;
@@ -312,20 +316,21 @@
             line-height: 1.12;
             font-weight: 400;
             margin-bottom: 12px;
+            color: #fff;
         }
 
         .welcome h1 span {
-            color: var(--terracotta);
+            color: var(--amber);
         }
 
         .welcome p {
-            color: #66665C;
+            color: #EDEAE0;
             font-size: 13px;
             line-height: 1.8;
             max-width: 500px;
         }
 
-        /* CATEGORIAS E SEÇÕES */
+        /* SEÇÕES */
 
         .section-heading {
             display: flex;
@@ -347,41 +352,12 @@
             margin-top: 4px;
         }
 
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
-            margin-bottom: 38px;
-        }
-
-        .category {
-            border: 1px solid var(--line);
-            border-radius: 30px;
-            padding: 9px 16px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #5D5D53;
-            transition: .2s;
-        }
-
-        .category:hover {
-            background: var(--olive);
-            color: var(--cream);
-            border-color: var(--olive);
-        }
-
         .news-section {
             padding-bottom: 42px;
             scroll-margin-top: 25px;
         }
 
-        .see-all {
-            font-size: 11px;
-            font-weight: 800;
-            color: var(--terracotta);
-        }
-
-        /* CARDS */
+        /* NOTÍCIAS */
 
         .news-grid {
             display: grid;
@@ -395,14 +371,16 @@
             border-radius: 11px;
             overflow: hidden;
             transition: transform .2s, box-shadow .2s;
+            min-width: 0;
         }
 
         .news-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(38, 39, 34, .08);
+            box-shadow: 0 12px 28px rgba(38,39,34,.08);
         }
 
-        .news-image {
+        .news-image,
+        .image-placeholder {
             width: 100%;
             height: 175px;
             object-fit: cover;
@@ -411,10 +389,8 @@
         }
 
         .image-placeholder {
-            height: 175px;
             display: grid;
             place-items: center;
-            background: var(--cream);
             color: var(--terracotta);
             font-family: 'DM Serif Display', serif;
             font-size: 32px;
@@ -438,6 +414,7 @@
             font-weight: 400;
             line-height: 1.25;
             margin: 10px 0;
+            overflow-wrap: anywhere;
         }
 
         .news-content p {
@@ -515,6 +492,242 @@
             font-size: 12px;
         }
 
+        .see-all {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--terracotta);
+        }
+
+        /* COMENTÁRIOS */
+
+        .comment-card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            padding: 22px;
+            margin-bottom: 14px;
+            min-width: 0;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .comment-category {
+            color: var(--terracotta);
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .comment-status {
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .comment-approved {
+            color: #343D2E;
+            background: #E8EEE4;
+        }
+
+        .comment-pending {
+            color: #956A1D;
+            background: #F8EFD9;
+        }
+
+        .comment-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 21px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .comment-card p {
+            color: #66665C;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .comment-date {
+            border-top: 1px solid var(--line);
+            padding-top: 12px;
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        /* PERFIL */
+
+        .profile-card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .profile-avatar {
+            width: 58px;
+            height: 58px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--terracotta);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            min-width: 0;
+        }
+
+        .profile-info strong {
+            font-size: 15px;
+            overflow-wrap: anywhere;
+        }
+
+        .profile-info span {
+            color: var(--muted);
+            font-size: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .profile-info small {
+            color: var(--terracotta);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .profile-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .profile-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 8px;
+            background: var(--olive);
+            color: white;
+            padding: 12px 17px;
+            font-size: 12px;
+            font-weight: 800;
+            transition: .2s;
+        }
+
+        .profile-button:hover {
+            background: var(--terracotta);
+        }
+
+        .profile-button-outline {
+            background: transparent;
+            border: 1px solid var(--olive);
+            color: var(--olive);
+        }
+
+        .profile-button-outline:hover {
+            color: white;
+            border-color: var(--terracotta);
+        }
+
+        /* FORMULÁRIO JORNALISTA */
+
+        .request-box {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .request-box > p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .request-msg {
+            color: var(--olive) !important;
+            background: #E8EEE4;
+            border-radius: 8px;
+            padding: 13px 15px;
+            margin-bottom: 15px;
+        }
+
+        .request-error {
+            color: #A23B2D !important;
+            background: #FCEBE7;
+        }
+
+        #formJornalista {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #formJornalista label {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-top: 8px;
+        }
+
+        #formJornalista input,
+        #formJornalista select,
+        #formJornalista textarea {
+            width: 100%;
+            min-width: 0;
+            padding: 13px 14px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #FFFEFC;
+            color: var(--charcoal);
+            font-size: 13px;
+            outline: none;
+        }
+
+        #formJornalista input:focus,
+        #formJornalista select:focus,
+        #formJornalista textarea:focus {
+            border-color: var(--terracotta);
+            box-shadow: 0 0 0 3px rgba(198,93,58,.10);
+        }
+
+        #formJornalista textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        #formJornalista input[type="file"] {
+            padding: 10px;
+            background: var(--paper);
+        }
+
+        #formJornalista button {
+            margin-top: 12px;
+            align-self: flex-start;
+        }
+
         /* RODAPÉ */
 
         .footer {
@@ -525,13 +738,14 @@
             display: flex;
             justify-content: space-between;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .footer strong {
             color: var(--olive);
         }
 
-        /* RESPONSIVIDADE */
+        /* TABLET */
 
         @media (max-width: 1050px) {
             .news-grid {
@@ -541,7 +755,18 @@
             .main {
                 padding: 25px 4%;
             }
+
+            .sidebar {
+                width: 225px;
+                padding: 28px 16px;
+            }
+
+            .profile-actions {
+                margin-left: 0;
+            }
         }
+
+        /* CELULAR */
 
         @media (max-width: 720px) {
             .layout {
@@ -551,7 +776,7 @@
             .sidebar {
                 width: 100%;
                 min-height: auto;
-                padding: 18px 20px;
+                padding: 17px 16px;
             }
 
             .brand {
@@ -571,6 +796,8 @@
                 flex-direction: row;
                 overflow-x: auto;
                 padding-top: 13px;
+                gap: 6px;
+                scrollbar-width: thin;
             }
 
             .menu a {
@@ -579,189 +806,113 @@
                 font-size: 11px;
             }
 
+            .menu-icon {
+                width: auto;
+            }
+
             .main {
-                padding: 20px;
-            }
-
-            .welcome {
-                padding: 27px 23px;
-                margin-top: 25px;
-            }
-
-            .welcome::after {
-                font-size: 120px;
-                right: 5px;
-            }
-
-            .news-grid {
-                grid-template-columns: 1fr;
+                padding: 20px 16px;
             }
 
             .topbar {
-                align-items: center;
+                align-items: flex-start;
+                padding-bottom: 15px;
+            }
+
+            .topbar-right {
+                gap: 8px;
             }
 
             .reader-label {
                 display: none;
             }
 
+            .welcome {
+                margin: 22px 0 28px;
+                padding: 30px 22px;
+                min-height: 250px;
+            }
+
+            .welcome h1 {
+                font-size: 31px;
+            }
+
+            .welcome p {
+                font-size: 12px;
+            }
+
+            .welcome::after {
+                font-size: 120px;
+                right: 12px;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+            }
+
+            .section-heading h2 {
+                font-size: 24px;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .news-image,
+            .image-placeholder {
+                height: 200px;
+            }
+
+            .profile-card {
+                align-items: flex-start;
+                padding: 19px;
+            }
+
+            .profile-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .profile-actions .profile-button {
+                width: 100%;
+            }
+
+            .request-box {
+                padding: 18px;
+            }
+
+            #formJornalista button {
+                width: 100%;
+            }
+
             .footer {
                 flex-direction: column;
+                gap: 8px;
             }
         }
 
-        /* PERFIL */
+        @media (max-width: 380px) {
+            .main {
+                padding: 17px 12px;
+            }
 
-        .brand-name {
-            display: inline-block;
-            color: inherit;
-            text-decoration: none;
-        }
+            .welcome {
+                padding: 25px 17px;
+            }
 
-        .profile-card {
-            display: flex;
-            align-items: center;
-            gap: 22px;
-            flex-wrap: wrap;
-            padding: 26px;
-            border: 1px solid var(--line);
-            border-radius: 11px;
-            background: white;
-        }
+            .welcome h1 {
+                font-size: 27px;
+            }
 
-        .profile-avatar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 64px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            background: var(--terracotta);
-            color: white;
-            font-family: 'DM Serif Display', serif;
-            font-size: 28px;
-        }
+            .section-heading h2 {
+                font-size: 22px;
+            }
 
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            flex: 1;
-            min-width: 180px;
-        }
-
-        .profile-info strong {
-            font-family: 'DM Serif Display', serif;
-            font-size: 24px;
-            font-weight: 400;
-        }
-
-        .profile-info span {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .profile-info small {
-            color: var(--terracotta);
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .profile-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .profile-button {
-            padding: 12px 16px;
-            border: 1px solid var(--olive);
-            border-radius: 4px;
-            background: var(--olive);
-            color: var(--cream);
-            font-size: 12px;
-            font-weight: 800;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        .profile-button:hover {
-            background: var(--terracotta);
-            border-color: var(--terracotta);
-            color: white;
-        }
-
-        .profile-button-outline {
-            background: transparent;
-            color: var(--olive);
-        }
-
-        .request-box {
-            padding: 26px;
-            border: 1px solid var(--line);
-            border-radius: 11px;
-            background: white;
-        }
-
-        .request-box form {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            max-width: 640px;
-        }
-
-        .request-box label {
-            margin-top: 8px;
-            font-size: 12px;
-            font-weight: 800;
-        }
-
-        .request-box textarea,
-        .request-box select,
-        .request-box input[type="text"],
-        .request-box input[type="file"] {
-            padding: 12px;
-            border: 1px solid var(--line);
-            border-radius: 4px;
-            background: var(--paper);
-            font-family: inherit;
-            font-size: 13px;
-        }
-
-        .request-box form[hidden],
-        .request-box button[hidden] {
-            display: none;
-        }
-
-        .request-box button {
-            align-self: flex-start;
-            margin-top: 14px;
-            cursor: pointer;
-        }
-
-        .request-box p {
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .request-box .request-msg {
-            margin-bottom: 14px;
-            font-weight: 700;
-        }
-
-        .request-box .request-error {
-            color: #A23B2D;
-        }
-
-        .empty-state .see-all {
-            display: inline-block;
-            margin-top: 14px;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--terracotta);
+            .menu a {
+                font-size: 10px;
+                padding: 9px 8px;
+            }
         }
     </style>
 </head>
@@ -773,8 +924,10 @@
     <aside class="sidebar">
 
         <div class="brand">
-            <a href="{% url 'home' %}" class="brand-name">Nosso <span>SP.</span></a>
-                    </div>
+            <a href="{% url 'home' %}" class="brand-name">
+                Nosso <span>SP.</span>
+            </a>
+        </div>
 
         <div class="menu-label">Área do leitor</div>
 
@@ -831,12 +984,12 @@
 
     </aside>
 
-
     <main class="main" id="inicio">
 
         <header class="topbar">
             <div class="breadcrumb">
-                <a href="{% url 'home' %}">Nosso SP</a> / <strong>Área do leitor</strong>
+                <a href="{% url 'home' %}">Nosso SP</a> /
+                <strong>Área do leitor</strong>
             </div>
 
             <div class="topbar-right">
@@ -845,24 +998,28 @@
             </div>
         </header>
 
+        <!-- BOAS-VINDAS -->
 
         <section class="welcome">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
+
             <div class="welcome-slides" id="welcomeSlides" aria-hidden="true">
-                <img class="welcome-slide is-active" src="https://images.unsplash.com/photo-1543059080-f9b1272213d5?auto=format&fit=crop&w=1400&q=85" alt="">
-                <img class="welcome-slide" src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy">
-                <img class="welcome-slide" src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy">
+                <img class="welcome-slide is-active"
+                     src="https://images.unsplash.com/photo-1543059080-f9b1272213d5?auto=format&fit=crop&w=1400&q=85"
+                     alt="">
+
+                <img class="welcome-slide"
+                     src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1400&q=85"
+                     alt=""
+                     loading="lazy">
+
+                <img class="welcome-slide"
+                     src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1400&q=85"
+                     alt=""
+                     loading="lazy">
             </div>
+
             <div class="welcome-shade"></div>
 
-<<<<<<< HEAD
-=======
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
->>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
             <div class="eyebrow">Sua cidade. Sua informação.</div>
 
             <h1>
@@ -875,10 +1032,11 @@
                 e fique por dentro das notícias que fazem parte da vida
                 da nossa cidade.
             </p>
+
         </section>
 
-
         <!-- NOTÍCIAS SALVAS -->
+
         <section class="news-section" id="salvos">
 
             <div class="section-heading">
@@ -899,6 +1057,7 @@
                                 src="{{ publicacao.imagem_url }}"
                                 alt="{{ publicacao.titulo }}"
                                 class="news-image"
+                                loading="lazy"
                             >
                         {% else %}
                             <div class="image-placeholder">
@@ -914,33 +1073,37 @@
 
                             <h3>{{ publicacao.titulo }}</h3>
 
-                            <p>{{ publicacao.resumo|truncatewords:22 }}</p>
+                            <p>
+                                {{ publicacao.resumo|truncatewords:22 }}
+                            </p>
 
                             <div class="news-footer">
 
-                                <a
-                                    href="{% url 'noticia' %}?id={{ publicacao.id }}"
-                                    class="read-link"
-                                >
-                                    Ler notícia →
-                                </a>
-
-                                <form
-                                    method="POST"
-                                    action="{% url 'alternar_favorito' publicacao.id %}"
-                                    class="favorite-form"
-                                >
-                                    {% csrf_token %}
-
-                                    <button
-                                        type="submit"
-                                        class="favorite-button"
-                                        title="Remover dos favoritos"
-                                        aria-label="Remover dos favoritos"
+                                <div class="news-actions">
+                                    <a
+                                        href="{% url 'noticia' %}?id={{ publicacao.id }}"
+                                        class="read-link"
                                     >
-                                        ♥
-                                    </button>
-                                </form>
+                                        Ler notícia →
+                                    </a>
+
+                                    <form
+                                        method="POST"
+                                        action="{% url 'alternar_favorito' publicacao.id %}"
+                                        class="favorite-form"
+                                    >
+                                        {% csrf_token %}
+
+                                        <button
+                                            type="submit"
+                                            class="favorite-button"
+                                            title="Remover dos favoritos"
+                                            aria-label="Remover dos favoritos"
+                                        >
+                                            ♥
+                                        </button>
+                                    </form>
+                                </div>
 
                             </div>
 
@@ -952,8 +1115,13 @@
 
                     <div class="empty-state">
                         <h3>Você ainda não salvou notícias.</h3>
-                        <p>Abra uma notícia e clique em “Salvar notícia” para guardá-la aqui.</p>
-                        <a href="{% url 'explorar' %}" class="see-all">Explorar notícias →</a>
+                        <p>
+                            Abra uma notícia e clique em “Salvar notícia”
+                            para guardá-la aqui.
+                        </p>
+                        <a href="{% url 'explorar' %}" class="see-all">
+                            Explorar notícias →
+                        </a>
                     </div>
 
                 {% endfor %}
@@ -962,230 +1130,256 @@
 
         </section>
 
+        <!-- MEUS COMENTÁRIOS -->
 
-       
-<!-- MEUS COMENTÁRIOS -->
-<section class="news-section" id="comentarios">
+        <section class="news-section" id="comentarios">
 
-    <div class="section-heading">
-        <div>
-            <h2>Meus comentários</h2>
-            <p>Acompanhe suas participações nas notícias do Nosso SP.</p>
-        </div>
-    </div>
-
-    <div style="display:flex; flex-direction:column; gap:14px;">
-
-        {% for comentario in meus_comentarios %}
-
-            <article style="
-                background:white;
-                border:1px solid var(--line);
-                border-radius:11px;
-                padding:22px;
-            ">
-
-                <div style="
-                    display:flex;
-                    justify-content:space-between;
-                    align-items:center;
-                    gap:12px;
-                    flex-wrap:wrap;
-                    margin-bottom:12px;
-                ">
-
-                    <span class="news-category">
-                        {{ comentario.noticia.categoria }}
-                    </span>
-
-                    {% if comentario.aprovado %}
-                        <span style="
-                            color:#343D2E;
-                            background:#E8EEE4;
-                            padding:6px 11px;
-                            border-radius:20px;
-                            font-size:10px;
-                            font-weight:800;
-                        ">
-                            APROVADO
-                        </span>
-                    {% else %}
-                        <span style="
-                            color:#956A1D;
-                            background:#F8EFD9;
-                            padding:6px 11px;
-                            border-radius:20px;
-                            font-size:10px;
-                            font-weight:800;
-                        ">
-                            AGUARDANDO APROVAÇÃO
-                        </span>
-                    {% endif %}
-
+            <div class="section-heading">
+                <div>
+                    <h2>Meus comentários</h2>
+                    <p>
+                        Acompanhe suas participações nas notícias do Nosso SP.
+                    </p>
                 </div>
-
-                <h3 style="
-                    font-family:'DM Serif Display',serif;
-                    font-size:21px;
-                    font-weight:400;
-                    margin-bottom:10px;
-                ">
-                    {{ comentario.noticia.titulo }}
-                </h3>
-
-                <p style="
-                    color:#66665C;
-                    font-size:13px;
-                    line-height:1.8;
-                    margin-bottom:15px;
-                ">
-                    {{ comentario.texto|linebreaksbr }}
-                </p>
-
-                <div style="
-                    border-top:1px solid var(--line);
-                    padding-top:12px;
-                    color:var(--muted);
-                    font-size:10px;
-                ">
-                    Enviado em {{ comentario.data_criacao|date:"d/m/Y às H:i" }}
-                </div>
-
-            </article>
-
-        {% empty %}
-
-            <div class="empty-state">
-                <h3>Você ainda não comentou.</h3>
-                <p>Participe das conversas nas notícias do Nosso SP.</p>
             </div>
 
-        {% endfor %}
+            <div>
 
-    </div>
+                {% for comentario in meus_comentarios %}
 
-</section>
+                    <article class="comment-card">
 
-<!-- MEU PERFIL -->
-<section class="news-section" id="perfil">
-    <div class="section-heading">
-        <div>
-            <h2>Meu perfil</h2>
-            <p>Os dados da sua conta no Nosso SP.</p>
-        </div>
-    </div>
+                        <div class="comment-header">
 
-    <div class="profile-card">
-        <div class="profile-avatar">{{ usuario_nome|first|upper }}</div>
+                            <span class="comment-category">
+                                {{ comentario.noticia.categoria }}
+                            </span>
 
-        <div class="profile-info">
-            <strong>{{ usuario_nome }}</strong>
-            <span>{{ usuario_email }}</span>
-            <small>Conta de leitor</small>
-        </div>
+                            {% if comentario.aprovado %}
+                                <span class="comment-status comment-approved">
+                                    APROVADO
+                                </span>
+                            {% else %}
+                                <span class="comment-status comment-pending">
+                                    AGUARDANDO APROVAÇÃO
+                                </span>
+                            {% endif %}
 
-        <div class="profile-actions">
-            <a href="{% url 'home' %}" class="profile-button">Ir para a página inicial</a>
-            <a href="{% url 'explorar' %}" class="profile-button profile-button-outline">Explorar notícias</a>
-        </div>
-    </div>
-</section>
+                        </div>
 
+                        <h3>{{ comentario.noticia.titulo }}</h3>
 
+                        <p>{{ comentario.texto|linebreaksbr }}</p>
 
-<!-- SER JORNALISTA -->
-<section class="news-section" id="jornalista">
-    <div class="section-heading">
-        <div>
-            <h2>Quero ser jornalista</h2>
-            <p>Envie seus dados, certificados e habilidades para a nossa equipe avaliar.</p>
-        </div>
-    </div>
+                        <div class="comment-date">
+                            Enviado em {{ comentario.data_criacao|date:"d/m/Y às H:i" }}
+                        </div>
 
-    <div class="request-box">
+                    </article>
 
-        {% if solicitacao_enviada %}
-            <p class="request-msg">Solicitação enviada! Em breve nossa equipe entra em contato.</p>
-        {% endif %}
+                {% empty %}
 
-        {% if erro_solicitacao %}
-            <p class="request-msg request-error">{{ erro_solicitacao }}</p>
-        {% endif %}
+                    <div class="empty-state">
+                        <h3>Você ainda não comentou.</h3>
+                        <p>
+                            Participe das conversas nas notícias do Nosso SP.
+                        </p>
+                    </div>
 
-        {% if solicitacao and solicitacao.status == 'pendente' %}
-            <p>Seu pedido está <strong>aguardando análise</strong>. Assim que o administrador liberar, sua conta passa a ser de jornalista.</p>
+                {% endfor %}
 
-        {% elif solicitacao and solicitacao.status == 'entrevista' %}
-            <p>
-                Sua <strong>entrevista foi marcada</strong> para
-                <strong>{{ solicitacao.data_entrevista|date:"d/m/Y \à\s H:i" }}</strong>{% if solicitacao.detalhes_entrevista %} — {{ solicitacao.detalhes_entrevista }}{% endif %}.
-            </p>
+            </div>
 
-        {% elif not conta_cadastrada %}
-            <p>Para pedir autorização, entre com uma conta de leitor cadastrada no Nosso SP.</p>
+        </section>
 
-        {% else %}
-            {% if solicitacao and solicitacao.status == 'recusada' %}
-                <p class="request-msg">Seu pedido anterior não foi aceito. Você pode enviar um novo.</p>
-            {% endif %}
+        <!-- MEU PERFIL -->
 
-            <button type="button" class="profile-button" id="abrirFormJornalista" {% if erro_solicitacao %}hidden{% endif %}>
-                Quero ser jornalista
-            </button>
+        <section class="news-section" id="perfil">
 
-            <form id="formJornalista" method="POST" action="{% url 'solicitar_jornalista' %}" enctype="multipart/form-data" {% if not erro_solicitacao %}hidden{% endif %}>
-                {% csrf_token %}
+            <div class="section-heading">
+                <div>
+                    <h2>Meu perfil</h2>
+                    <p>Os dados da sua conta no Nosso SP.</p>
+                </div>
+            </div>
 
-                <label for="nome_completo">Nome completo *</label>
-                <input type="text" id="nome_completo" name="nome_completo" maxlength="150" required>
+            <div class="profile-card">
 
-                <label for="cpf">CPF *</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" inputmode="numeric" placeholder="000.000.000-00" required>
+                <div class="profile-avatar">
+                    {{ usuario_nome|first|upper }}
+                </div>
 
-                <label for="zona">Zona onde mora *</label>
-                <select id="zona" name="zona" required>
-                    <option value="">Selecione a zona</option>
-                    {% for valor, nome in regioes %}
-                        <option value="{{ valor }}">{{ nome }}</option>
-                    {% endfor %}
-                </select>
+                <div class="profile-info">
+                    <strong>{{ usuario_nome }}</strong>
+                    <span>{{ usuario_email }}</span>
+                    <small>Conta de leitor</small>
+                </div>
 
-                <label for="bairro">Bairro onde mora *</label>
-                <input type="text" id="bairro" name="bairro" maxlength="100" required>
+                <div class="profile-actions">
+                    <a href="{% url 'home' %}" class="profile-button">
+                        Ir para a página inicial
+                    </a>
 
-                <label for="certificados">Certificados (fotos JPG, PNG, WEBP ou GIF, até 5 MB cada) *</label>
-                <input type="file" id="certificados" name="certificados" accept="image/jpeg,image/png,image/webp,image/gif" multiple required>
+                    <a href="{% url 'explorar' %}" class="profile-button profile-button-outline">
+                        Explorar notícias
+                    </a>
+                </div>
 
-                <label for="capacidades">Suas habilidades *</label>
-                <textarea id="capacidades" name="capacidades" rows="4" required placeholder="Ex.: apuração, redação, fotografia, cobertura de bairros..."></textarea>
+            </div>
 
-                <button type="submit" class="profile-button">Enviar solicitação</button>
-            </form>
+        </section>
 
-            <script>
-                (function () {
-                    var botao = document.getElementById("abrirFormJornalista");
-                    var form = document.getElementById("formJornalista");
-                    var cpf = document.getElementById("cpf");
+        <!-- SOLICITAÇÃO PARA SER JORNALISTA -->
 
-                    botao.addEventListener("click", function () {
-                        form.hidden = false;
-                        botao.hidden = true;
-                        form.scrollIntoView({ behavior: "smooth", block: "start" });
-                    });
+        <section class="news-section" id="jornalista">
 
-                    cpf.addEventListener("input", function () {
-                        var d = cpf.value.replace(/\D/g, "").slice(0, 11);
-                        cpf.value = d
-                            .replace(/(\d{3})(\d)/, "$1.$2")
-                            .replace(/(\d{3})(\d)/, "$1.$2")
-                            .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-                    });
-                })();
-            </script>
-        {% endif %}
-    </div>
-</section>
+            <div class="section-heading">
+                <div>
+                    <h2>Quero ser jornalista</h2>
+                    <p>
+                        Envie seus dados, certificados e habilidades
+                        para a nossa equipe avaliar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="request-box">
+
+                {% if solicitacao_enviada %}
+                    <p class="request-msg">
+                        Solicitação enviada! Em breve nossa equipe entra em contato.
+                    </p>
+                {% endif %}
+
+                {% if erro_solicitacao %}
+                    <p class="request-msg request-error">
+                        {{ erro_solicitacao }}
+                    </p>
+                {% endif %}
+
+                {% if solicitacao and solicitacao.status == 'pendente' %}
+
+                    <p>
+                        Seu pedido está <strong>aguardando análise</strong>.
+                        Assim que o administrador liberar, sua conta passa
+                        a ser de jornalista.
+                    </p>
+
+                {% elif solicitacao and solicitacao.status == 'entrevista' %}
+
+                    <p>
+                        Sua <strong>entrevista foi marcada</strong> para
+                        <strong>{{ solicitacao.data_entrevista|date:"d/m/Y às H:i" }}</strong>
+                        {% if solicitacao.detalhes_entrevista %}
+                            — {{ solicitacao.detalhes_entrevista }}
+                        {% endif %}.
+                    </p>
+
+                {% elif not conta_cadastrada %}
+
+                    <p>
+                        Para pedir autorização, entre com uma conta de leitor
+                        cadastrada no Nosso SP.
+                    </p>
+
+                {% else %}
+
+                    {% if solicitacao and solicitacao.status == 'recusada' %}
+                        <p class="request-msg">
+                            Seu pedido anterior não foi aceito.
+                            Você pode enviar um novo.
+                        </p>
+                    {% endif %}
+
+                    <button
+                        type="button"
+                        class="profile-button"
+                        id="abrirFormJornalista"
+                        {% if erro_solicitacao %}hidden{% endif %}
+                    >
+                        Quero ser jornalista
+                    </button>
+
+                    <form
+                        id="formJornalista"
+                        method="POST"
+                        action="{% url 'solicitar_jornalista' %}"
+                        enctype="multipart/form-data"
+                        {% if not erro_solicitacao %}hidden{% endif %}
+                    >
+
+                        {% csrf_token %}
+
+                        <label for="nome_completo">Nome completo *</label>
+                        <input
+                            type="text"
+                            id="nome_completo"
+                            name="nome_completo"
+                            maxlength="150"
+                            required
+                        >
+
+                        <label for="cpf">CPF *</label>
+                        <input
+                            type="text"
+                            id="cpf"
+                            name="cpf"
+                            maxlength="14"
+                            inputmode="numeric"
+                            placeholder="000.000.000-00"
+                            required
+                        >
+
+                        <label for="zona">Zona onde mora *</label>
+                        <select id="zona" name="zona" required>
+                            <option value="">Selecione a zona</option>
+                            {% for valor, nome in regioes %}
+                                <option value="{{ valor }}">{{ nome }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <label for="bairro">Bairro onde mora *</label>
+                        <input
+                            type="text"
+                            id="bairro"
+                            name="bairro"
+                            maxlength="100"
+                            required
+                        >
+
+                        <label for="certificados">
+                            Certificados (JPG, PNG, WEBP ou GIF, até 5 MB cada) *
+                        </label>
+
+                        <input
+                            type="file"
+                            id="certificados"
+                            name="certificados"
+                            accept="image/jpeg,image/png,image/webp,image/gif"
+                            multiple
+                            required
+                        >
+
+                        <label for="capacidades">Suas habilidades *</label>
+                        <textarea
+                            id="capacidades"
+                            name="capacidades"
+                            rows="4"
+                            required
+                            placeholder="Ex.: apuração, redação, fotografia, cobertura de bairros."
+                        ></textarea>
+
+                        <button type="submit" class="profile-button">
+                            Enviar solicitação
+                        </button>
+
+                    </form>
+
+                {% endif %}
+
+            </div>
+
+        </section>
 
         <footer class="footer">
             <span><strong>Nosso SP.</strong></span>
@@ -1196,32 +1390,219 @@
 
 </div>
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
-
 <script>
-    // Carrossel automático da imagem principal
+    // Abre o formulário de solicitação para jornalista.
+
+    const botaoJornalista = document.getElementById("abrirFormJornalista");
+    const formularioJornalista = document.getElementById("formJornalista");
+
+    if (botaoJornalista && formularioJornalista) {
+        botaoJornalista.addEventListener("click", function () {
+            formularioJornalista.hidden = false;
+            botaoJornalista.hidden = true;
+
+            formularioJornalista.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+    }
+
+    // Formatação automática do CPF.
+
+    const campoCPF = document.getElementById("cpf");
+
+    if (campoCPF) {
+        campoCPF.addEventListener("input", function () {
+            let numeros = campoCPF.value.replace(/\D/g, "").slice(0, 11);
+
+            numeros = numeros.replace(/(\d{3})(\d)/, "$1.$2");
+            numeros = numeros.replace(/(\d{3})(\d)/, "$1.$2");
+            numeros = numeros.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+            campoCPF.value = numeros;
+        });
+    }
+
+    // Carrossel automático da imagem principal.
+
     (function () {
-        const slides = document.querySelectorAll("#welcomeSlides .welcome-slide");
-        if (slides.length < 2) { return; }
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { return; }
+        const slides = document.querySelectorAll(
+            "#welcomeSlides .welcome-slide"
+        );
+
+        if (slides.length < 2) {
+            return;
+        }
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+        }
 
         let atual = 0;
+
         setInterval(function () {
-            if (document.hidden) { return; }
+            if (document.hidden) {
+                return;
+            }
+
             slides[atual].classList.remove("is-active");
+
             atual = (atual + 1) % slides.length;
+
             slides[atual].classList.add("is-active");
+
         }, 4500);
+
     })();
 </script>
+<style>
 
-<<<<<<< HEAD
-=======
->>>>>>> 7d5b060 (Minhas alteracoes no projeto)
->>>>>>> ffd34d05689f7c6e97d1a1829021c13a90a5a30e
+/* AJUSTES EXTRAS DE RESPONSIVIDADE */
+
+/* Evita que elementos ultrapassem a largura da tela */
+.layout,
+.main,
+.sidebar,
+.news-section,
+.news-grid,
+.request-box,
+.profile-card {
+    min-width: 0;
+}
+
+/* Mantém o menu lateral visível durante a navegação */
+@media (min-width: 721px) {
+    .sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        align-self: flex-start;
+        overflow-y: auto;
+    }
+}
+
+/* Tablets */
+@media (min-width: 721px) and (max-width: 1050px) {
+    .main {
+        padding: 22px;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .welcome {
+        padding: 35px 28px;
+    }
+
+    .profile-card {
+        align-items: flex-start;
+    }
+}
+
+/* Celulares */
+@media (max-width: 720px) {
+    .sidebar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        min-height: auto;
+        height: auto;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+    }
+
+    .menu a {
+        flex: 0 0 auto;
+    }
+
+    .main {
+        width: 100%;
+        padding: 18px 14px;
+    }
+
+    .topbar {
+        flex-wrap: wrap;
+    }
+
+    .welcome {
+        width: 100%;
+        min-height: 230px;
+    }
+
+    .news-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .news-card {
+        width: 100%;
+    }
+
+    .news-image,
+    .image-placeholder {
+        height: 190px;
+    }
+
+    .request-box,
+    .profile-card,
+    .comment-card {
+        width: 100%;
+        padding: 17px;
+    }
+
+    #formJornalista {
+        width: 100%;
+    }
+
+    #formJornalista input,
+    #formJornalista select,
+    #formJornalista textarea,
+    #formJornalista button {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section-heading {
+        flex-wrap: wrap;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 380px) {
+    .main {
+        padding: 14px 10px;
+    }
+
+    .welcome h1 {
+        font-size: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    .news-content {
+        padding: 15px;
+    }
+
+    .news-footer {
+        flex-wrap: wrap;
+    }
+
+    .profile-actions {
+        width: 100%;
+    }
+}
+
+</style>
 </body>
 </html>
